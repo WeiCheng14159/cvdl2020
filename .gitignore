@@ -1,7 +1,11 @@
 # TensorBoard Log 
 events.*
+
 # Binary 
 *.out
+
+# TensorFlow check point 
+*.hdf5
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
