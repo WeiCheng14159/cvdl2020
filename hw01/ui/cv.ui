@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>709</width>
+    <height>355</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGroupBox" name="groupBox_3">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>20</y>
+      <width>231</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>2. Augmented Reality</string>
+    </property>
+    <widget class="QPushButton" name="AugmentedReality">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>201</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>2.1 Augmented Reality</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>16</height>
+      </size>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_4">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>90</y>
+      <width>231</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>3. Stereo Disparity Map</string>
+    </property>
+    <widget class="QPushButton" name="StereoDisparityMap">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>201</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>3.1 Stereo Disparity Map</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>16</height>
+      </size>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_5">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>160</y>
+      <width>231</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>4. SIFT</string>
+    </property>
+    <widget class="QPushButton" name="KeyPoints">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>201</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>4.1 Keypoints</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>16</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="MatchKeyPoints">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>60</y>
+       <width>201</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>4.2 Matched Keypoints</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>16</height>
+      </size>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>351</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>1. Calibration</string>
+    </property>
+    <widget class="QPushButton" name="FindCorners">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>40</y>
+       <width>141</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>1.1 Find Corners</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>16</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="FindIntrinsic">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>110</y>
+       <width>141</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>1.2 Find Intrinsic</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>16</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="FindDistortion">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>170</y>
+       <width>141</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>1.4 Find Distortion</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>16</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>30</y>
+       <width>151</width>
+       <height>191</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>1.3 Find Extrinsic</string>
+     </property>
+     <widget class="QPushButton" name="FindExtrinsic">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>140</y>
+        <width>131</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>1.3 Find Extrinsic</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>32</width>
+        <height>16</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>40</y>
+        <width>101</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Select Image</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="FileList">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>80</y>
+        <width>111</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>1</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>2</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>3</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>4</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>5</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>6</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>7</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>8</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>9</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>10</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>11</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>12</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>13</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>14</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>15</string>
+       </property>
+      </item>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>290</y>
+      <width>321</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Name: Cheng Wei (P76091226) CVDL2020 HW01</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>709</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu2020_cvdl_hw01">
+    <property name="title">
+     <string>2020 cvdl hw01</string>
+    </property>
+   </widget>
+   <addaction name="menu2020_cvdl_hw01"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>FindCorners</sender>
+   <signal>clicked()</signal>
+   <receiver>FindCorners</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>93</x>
+     <y>90</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>93</x>
+     <y>90</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>FindIntrinsic</sender>
+   <signal>clicked()</signal>
+   <receiver>FindIntrinsic</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>110</x>
+     <y>147</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>110</x>
+     <y>147</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>FindDistortion</sender>
+   <signal>clicked()</signal>
+   <receiver>FindDistortion</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>110</x>
+     <y>197</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>110</x>
+     <y>197</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>FileList</sender>
+   <signal>activated(int)</signal>
+   <receiver>FileList</receiver>
+   <slot>setCurrentIndex(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>275</x>
+     <y>164</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>275</x>
+     <y>164</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>FindExtrinsic</sender>
+   <signal>clicked()</signal>
+   <receiver>FindExtrinsic</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>275</x>
+     <y>207</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>275</x>
+     <y>207</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>AugmentedReality</sender>
+   <signal>clicked()</signal>
+   <receiver>KeyPoints</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>510</x>
+     <y>87</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>510</x>
+     <y>227</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>StereoDisparityMap</sender>
+   <signal>clicked()</signal>
+   <receiver>StereoDisparityMap</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>510</x>
+     <y>157</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>510</x>
+     <y>157</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>KeyPoints</sender>
+   <signal>clicked()</signal>
+   <receiver>KeyPoints</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>510</x>
+     <y>227</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>510</x>
+     <y>227</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>MatchKeyPoints</sender>
+   <signal>clicked()</signal>
+   <receiver>MatchKeyPoints</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>510</x>
+     <y>257</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>510</x>
+     <y>257</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
