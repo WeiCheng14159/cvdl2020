@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>268</width>
+    <height>415</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>310</y>
+      <width>211</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Name: Cheng Wei (P76091226) 
+CVDL2020 HW01</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>211</width>
+      <height>291</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>5. VGG-16</string>
+    </property>
+    <widget class="QPushButton" name="showTrainImage">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>191</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>1. Show Train Images</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="showHypterparameters">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>191</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>2. Show Hyperparameters</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="showModelStructure">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>90</y>
+       <width>191</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>3. Show Model Structure</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="showLossAndAccuracy">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>120</y>
+       <width>191</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>4. Show Loss and Accuracy</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="testImageIndex">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>220</y>
+       <width>171</width>
+       <height>21</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="inference">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>250</y>
+       <width>113</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Inference</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>160</y>
+       <width>171</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Type in the index of test 
+ image to inference 
+ (0~9999)</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>268</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menucvdl202_hw01">
+    <property name="title">
+     <string>cvdl202 hw01</string>
+    </property>
+   </widget>
+   <addaction name="menucvdl202_hw01"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>showTrainImage</sender>
+   <signal>clicked()</signal>
+   <receiver>showTrainImage</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>125</x>
+     <y>87</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>125</x>
+     <y>87</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>showHypterparameters</sender>
+   <signal>clicked()</signal>
+   <receiver>showHypterparameters</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>125</x>
+     <y>117</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>125</x>
+     <y>117</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>showModelStructure</sender>
+   <signal>clicked()</signal>
+   <receiver>showModelStructure</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>125</x>
+     <y>147</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>125</x>
+     <y>147</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>testImageIndex</sender>
+   <signal>cursorPositionChanged()</signal>
+   <receiver>statusbar</receiver>
+   <slot>update()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>125</x>
+     <y>272</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>133</x>
+     <y>404</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>inference</sender>
+   <signal>clicked()</signal>
+   <receiver>inference</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>126</x>
+     <y>307</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>126</x>
+     <y>307</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
