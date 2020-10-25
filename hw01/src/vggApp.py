@@ -114,6 +114,7 @@ class vggApp():
         plt.savefig(self.pg_log_dir+'loss.jpg')
 
         # Accuracy and Validation Accuracy
+        plt.figure()
         for k in ['acc', 'val_acc']:
             print(history.history[k])
             plt.plot(history.history[k])
