@@ -76,6 +76,16 @@ class vggApp():
             axes[i].set_xlabel(label)
         plt.show()
 
+    # Show progress
+    def show_progress(self):
+        fig, axes = plt.subplots(1, 2, sharex=True)
+
+        for idx, fname in enumerate(['acc.jpg', 'loss.jpg']):
+            img = plt.imread(self.pg_log_dir+fname)
+            axes[idx].imshow(img)
+            axes[idx].axis('off')
+        plt.show()
+
     # Train the model
     def train(self):
         # Load from check point if available

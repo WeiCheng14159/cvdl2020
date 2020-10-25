@@ -73,6 +73,7 @@ class vggMainWindow(object):
         self.showModelStructure.clicked.connect(self.app.show_model_structure)
         self.testImageIndex.textChanged.connect(self.app.get_inference_index)
         self.inference.clicked.connect(self.app.inference)
+        self.showLossAndAccuracy.clicked.connect(self.app.show_progress)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
