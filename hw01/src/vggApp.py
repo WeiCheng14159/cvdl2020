@@ -60,15 +60,16 @@ class vggApp():
         print("Learning rate = ", self.lr)
         print("Momentum = ", self.mome)
 
-    # Show 5 random images from training dataset
+    # Show 10 random images from training dataset
     def show_rand_imgs(self):
         idx = np.arange(50000)
         np.random.shuffle(idx)
-        selectIdx = idx[:5]
+        selectIdx = idx[:10]
 
-        fig, axes = plt.subplots(1, 5, sharex=True)
+        fig, axes = plt.subplots(
+            1, 10, sharex=True, sharey=True, figsize=(20, 2))
 
-        for i in range(5):
+        for i in range(10):
             img = self.x_train[selectIdx[i]]
             labelNum = self.y_train[selectIdx[i]][0]
             label = self.cifar10_dict[labelNum]
