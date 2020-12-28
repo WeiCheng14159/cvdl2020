@@ -2,3 +2,6 @@
 
 ### Homework 1
 Located in `./hw01`
+
+### Homework 2
+Located in `./hw02`
