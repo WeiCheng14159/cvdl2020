@@ -19,7 +19,7 @@ class resNetApp():
         self.valid_data_dir = './dataset/valid'
         # Model hyperparameter
         self.bch_size = 64
-        self.lr = 0.1
+        self.lr = 0.001
         self.opt = Adam(learning_rate=self.lr)
         self.nb_epoch = 100
         # Model check point path
@@ -116,7 +116,7 @@ class resNetApp():
         cp_cb = ModelCheckpoint(
             filepath=self.chkp_file, monitor='val_accuracy', save_weights_only=True, save_best_only=True)
         # Early stopping callback
-        es_cb = EarlyStopping(monitor="val_accuracy", patience=10)
+        es_cb = EarlyStopping(monitor="val_accuracy", patience=30)
         # TensorBoard callback
         tb_cb = TensorBoard(log_dir=self.tb_log_dir)
 
