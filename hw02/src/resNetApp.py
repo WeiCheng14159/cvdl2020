@@ -41,7 +41,7 @@ class resNetApp():
     def __load_dataset(self):
 
         # Use data generator
-        datagen = ImageDataGenerator()
+        datagen = ImageDataGenerator(rescale=1./255)
 
         # Automagically retrieve images and their classes for train and validation sets
         self.train_generator = datagen.flow_from_directory(
