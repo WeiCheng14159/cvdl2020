@@ -4,6 +4,7 @@ import numpy as np
 
 class cvApp():
     def __init__(self):
+
         self.q1_video = "./Q1_Image/bgSub.mp4"
         self.q2_video = "./Q2_Image/opticalFlow.mp4"
         self.q3_video = "./Q3_Image/test4perspective.mp4"
@@ -24,6 +25,12 @@ class cvApp():
 
     def bg_subtraction(self):
 
+        # Image counter
+        imgCount = 0
+
+        # Video frame shape
+        img_h, img_w = 176, 320
+
         # Create video object
         cap = cv2.VideoCapture(self.q1_video)
 
@@ -31,8 +38,12 @@ class cvApp():
             print("Fail to open video ", self.q1_video)
             return
 
-        # Create background subtractor
-        fgbg = cv2.createBackgroundSubtractorMOG2()
+        # Create background subtractor (mean, std)
+        bg_mean = None
+        bg_std = None
+
+        # First 50 images
+        bg_sum = []
 
         while(cap.isOpened()):
 
@@ -41,13 +52,45 @@ class cvApp():
             if (cv2.waitKey(1) & 0xFF == ord('q')) or (not ret):
                 break
 
-            fgbg.setHistory(100)
+            # Convert image to gray scale
+            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY).astype(np.float64)
 
-            # Apply bg subtraction
-            fgmask = fgbg.apply(frame)
+            # OpenCV assume float type image is of range 0.0 ~ 1.0
+            gray /= 255.0
 
-            cv2.imshow('fgmask', fgmask)
-            # cv2.imshow('frame', frame)
+            # Increment
+            imgCount = imgCount + 1
+
+            if imgCount <= 50:  # Update the background model
+                bg_sum.append(gray)
+            elif imgCount == 51:  # Calculate mean and std
+
+                # Convert sum of 50 images to numpy ndarray of size (50, 176, 320)
+                bg_sum = np.array(bg_sum)
+
+                # Compute mean
+                bg_mean = np.mean(bg_sum, axis=0)
+
+                # Compute std
+                bg_std = np.std(bg_sum, axis=0)
+
+                # Filter std
+                bg_std[bg_std < 1e-2] = 1e-2
+            else:
+
+                # Compute diff between this frame and mean frame
+                diff = gray - bg_mean
+
+                # Foreground / background threshold
+                thres = 10 * bg_std
+
+                for i in range(img_h):
+                    for j in range(img_w):
+                        gray[i, j] = 1.0 if (diff[i, j] > thres[i, j]) else 0.0
+
+                cv2.imshow("diff", diff)
+                cv2.imshow('gray', gray)
+                cv2.imshow('frame', frame)
 
         cap.release()
         cv2.destroyAllWindows()
