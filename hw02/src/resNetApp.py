@@ -21,7 +21,7 @@ class resNetApp():
         self.bch_size = 64
         self.lr = 0.001
         self.opt = Adam(learning_rate=self.lr)
-        self.nb_epoch = 100
+        self.nb_epoch = 50
         # Model check point path
         self.chkp_file = './pretrain/chkp.hdf5'
         # Log directory
