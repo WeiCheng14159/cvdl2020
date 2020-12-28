@@ -3,7 +3,7 @@ import numpy as np
 import tensorflow as tf
 import matplotlib.pyplot as plt
 from resNetModel import resnet_50
-from tensorflow.keras.optimizers import SGD
+from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import EarlyStopping, TensorBoard, ModelCheckpoint
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
@@ -19,9 +19,8 @@ class resNetApp():
         self.valid_data_dir = './dataset/valid'
         # Model hyperparameter
         self.bch_size = 64
-        self.lr = 0.01
-        self.mome = 0.9
-        self.opt = SGD(learning_rate=self.lr, momentum=self.mome)
+        self.lr = 0.1
+        self.opt = Adam(learning_rate=self.lr)
         self.nb_epoch = 1
         # Model check point path
         self.chkp_file = './pretrain/chkp.hdf5'
