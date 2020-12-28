@@ -30,8 +30,6 @@ class resNetApp():
         self.tb_log_dir = self.log_dir + '/tb_log/'
         # Progress log directory
         self.pg_log_dir = self.log_dir + '/pg_log/'
-        # Inference photo index
-        self.inf_idx = 0
         # Load dataset
         self.__load_dataset()
         # Build resNet50 model
@@ -126,42 +124,46 @@ class resNetApp():
 
         print(history)
 
-    def get_inference_index(self, idxStr):
-        try:
-            self.inf_idx = int(idxStr)
-        except:
-            return
-
     # Model inference
     def inference(self):
         # Load pretrained weights
         self.__load_pretrained()
 
+        # Randomly generate a testing image
+        inf_idx = np.random.randint(1000)
+
+        # bch_idx is the batch index
+        bch_idx = int(inf_idx / self.bch_size)
+
+        # bch_offset is the offset in a batch
+        bch_offset = inf_idx % self.bch_size
+
         # Load test image
-        test_image = self.x_test[self.inf_idx]
-        test_image_4d = np.reshape(test_image, (1, 32, 32, 3))
+        test_image = self.validation_generator[bch_idx][0][bch_offset]
+        test_label = int(self.validation_generator[bch_idx][1][bch_offset])
+
+        # Add one dimension
+        test_image_4d = np.reshape(
+            test_image, (1, self.img_width, self.img_height, 3))
 
         # Predict
-        predicted_class_probabilities = self.model.predict(test_image_4d)
+        predict_class_prob = self.model.predict(test_image_4d)
 
         # Concatenate prob and label
         classes = []
-        probs = predicted_class_probabilities[0]
+        probs = predict_class_prob[0]
         for idx, _ in enumerate(probs):
             classes.append(self.asirra_dict[idx])
 
         # Finalize prediction
-        predicted_class = np.argmax(predicted_class_probabilities)
+        predicted_class = np.argmax(predict_class_prob)
         print("Prediction: ", self.asirra_dict[predicted_class], "  Expected: ",
-              self.asirra_dict[self.y_test[self.inf_idx][0]], " Confidence: ", probs[predicted_class])
+              self.asirra_dict[test_label], " Confidence: ", probs[predicted_class])
 
         # Show predicted results
         fig, axes = plt.subplots(1, 2, figsize=(10, 5))
-        img = self.x_test[self.inf_idx]
-        labelNum = self.y_test[self.inf_idx][0]
-        label = self.asirra_dict[labelNum]
-        axes[0].imshow(img)
-        axes[0].set_xlabel(label)
+        axes[0].imshow(test_image)
+        axes[0].set_xlabel("Class:  " + self.asirra_dict[test_label])
         axes[1].bar(classes, probs)
         plt.setp(axes[1].get_xticklabels(), rotation='vertical')
         plt.show()
