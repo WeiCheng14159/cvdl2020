@@ -103,9 +103,9 @@ class vggApp():
         # Callback functions
         # Check point callback
         cp_cb = ModelCheckpoint(
-            filepath=self.chkp_file, monitor='val_acc', save_weights_only=True, save_best_only=True)
+            filepath=self.chkp_file, monitor='val_accuracy', save_weights_only=True, save_best_only=True)
         # Early stopping callback
-        es_cb = EarlyStopping(monitor="val_acc", patience=10)
+        es_cb = EarlyStopping(monitor="val_accuracy", patience=10)
         # TensorBoard callback
         tb_cb = TensorBoard(log_dir=self.tb_log_dir)
 
@@ -126,13 +126,13 @@ class vggApp():
 
         # Accuracy and Validation Accuracy
         plt.figure()
-        for k in ['acc', 'val_acc']:
+        for k in ['acc', 'val_accuracy']:
             print(history.history[k])
             plt.plot(history.history[k])
         plt.title('acc')
         plt.ylabel('acc')
         plt.xlabel('epoch')
-        plt.legend(['acc', 'val_acc'], loc='upper left')
+        plt.legend(['acc', 'val_accuracy'], loc='upper left')
         plt.savefig(self.pg_log_dir+'acc.jpg')
 
     def get_inference_index(self, idxStr):

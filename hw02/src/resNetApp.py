@@ -21,7 +21,7 @@ class resNetApp():
         self.bch_size = 64
         self.lr = 0.1
         self.opt = Adam(learning_rate=self.lr)
-        self.nb_epoch = 1
+        self.nb_epoch = 100
         # Model check point path
         self.chkp_file = './pretrain/chkp.hdf5'
         # Log directory
@@ -40,10 +40,9 @@ class resNetApp():
     # This function loads CIFAR-10 dataset
     def __load_dataset(self):
 
-        # Used to rescale the pixel values from [0, 255] to [0, 1] interval
-        # datagen = ImageDataGenerator(rescale=1./255)
+        # Use data generator
         datagen = ImageDataGenerator()
-        
+
         # Automagically retrieve images and their classes for train and validation sets
         self.train_generator = datagen.flow_from_directory(
             self.train_data_dir,
@@ -107,7 +106,7 @@ class resNetApp():
 
         # Compile the model
         self.model.compile(
-            optimizer=self.opt, loss='binary_crossentropy', metrics=['accuracy'])
+            optimizer=self.opt, loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
         # Evaluate the model
         self.model.evaluate(self.validation_generator)
@@ -115,9 +114,9 @@ class resNetApp():
         # Callback functions
         # Check point callback
         cp_cb = ModelCheckpoint(
-            filepath=self.chkp_file, monitor='val_acc', save_weights_only=True, save_best_only=True)
+            filepath=self.chkp_file, monitor='val_accuracy', save_weights_only=True, save_best_only=True)
         # Early stopping callback
-        es_cb = EarlyStopping(monitor="val_acc", patience=10)
+        es_cb = EarlyStopping(monitor="val_accuracy", patience=10)
         # TensorBoard callback
         tb_cb = TensorBoard(log_dir=self.tb_log_dir)
 
@@ -125,8 +124,7 @@ class resNetApp():
         history = self.model.fit(x=self.train_generator, epochs=self.nb_epoch, validation_data=self.validation_generator,
                                  callbacks=[cp_cb, es_cb, tb_cb])
 
-        # history = self.model.fit(self.x_train, self.y_train, batch_size=self.bch_size, epochs=30, validation_data=(
-        #     self.x_test, self.y_test), callbacks=[cp_cb, es_cb, tb_cb])
+        print(history)
 
     def get_inference_index(self, idxStr):
         try:
