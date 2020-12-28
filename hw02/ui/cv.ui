@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>483</width>
+    <height>369</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGroupBox" name="groupBox_3">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>20</y>
+      <width>231</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>3. Perspective Transform</string>
+    </property>
+    <widget class="QPushButton" name="PerspectiveTransform">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>201</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>3.1 Perspective Transform</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>16</height>
+      </size>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_5">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>120</y>
+      <width>231</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>4. PCA</string>
+    </property>
+    <widget class="QPushButton" name="ImgReconstruction">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>201</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>4.1 Img Recontruction</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>16</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ReconstructionError">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>80</y>
+       <width>201</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>4.2 Reconstruction Error</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>16</height>
+      </size>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>171</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>1. Background Subtraction</string>
+    </property>
+    <widget class="QPushButton" name="BgSubtraction">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>151</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>1.1 Bg subtraction</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>16</height>
+      </size>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="NameLabel">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>270</y>
+      <width>321</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Name: Cheng Wei (P76091226) CVDL2020 HW02</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>120</y>
+      <width>171</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>2. Optical Flow</string>
+    </property>
+    <widget class="QPushButton" name="Preprocessing">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>151</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>2.1 Preprocessing</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>16</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="VideoTracking">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>80</y>
+       <width>151</width>
+       <height>32</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>2.2 Video tracking</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>16</height>
+      </size>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>483</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu2020_cvdl_hw02">
+    <property name="title">
+     <string>2020 cvdl hw01</string>
+    </property>
+   </widget>
+   <addaction name="menu2020_cvdl_hw02"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbae"/>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>BgSubtraction</sender>
+   <signal>clicked()</signal>
+   <receiver>BgSubtraction</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>93</x>
+     <y>90</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>93</x>
+     <y>90</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>VideoTracking</sender>
+   <signal>clicked()</signal>
+   <receiver>VideoTracking</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>110</x>
+     <y>224</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>110</x>
+     <y>224</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>PerspectiveTransform</sender>
+   <signal>clicked()</signal>
+   <receiver>ImgReconstruction</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>430</x>
+     <y>105</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>420</x>
+     <y>215</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ImgReconstruction</sender>
+   <signal>clicked()</signal>
+   <receiver>ImgReconstruction</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>420</x>
+     <y>215</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>420</x>
+     <y>215</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ReconstructionError</sender>
+   <signal>clicked()</signal>
+   <receiver>ReconstructionError</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>420</x>
+     <y>255</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>420</x>
+     <y>255</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
