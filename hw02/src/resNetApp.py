@@ -68,23 +68,6 @@ class resNetApp():
         except:
             print("Fail to load saved weight at " + self.chkp_file)
 
-    # Show 10 random images from training dataset
-    def show_rand_imgs(self):
-        idx = np.arange(50000)
-        np.random.shuffle(idx)
-        selectIdx = idx[:10]
-
-        fig, axes = plt.subplots(
-            1, 10, sharex=True, sharey=True, figsize=(20, 2))
-
-        for i in range(10):
-            img = self.x_train[selectIdx[i]]
-            labelNum = self.y_train[selectIdx[i]][0]
-            label = self.asirra_dict[labelNum]
-            axes[i].imshow(img)
-            axes[i].set_xlabel(label)
-        plt.show()
-
     # Show progress
     def show_progress(self):
         fig, axes = plt.subplots(1, 2, sharex=True)
