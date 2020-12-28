@@ -70,12 +70,8 @@ class resNetApp():
 
     # Show progress
     def show_progress(self):
-        fig, axes = plt.subplots(1, 2, sharex=True)
-
-        for idx, fname in enumerate(['acc.jpg', 'loss.jpg']):
-            img = plt.imread(self.pg_log_dir+fname)
-            axes[idx].imshow(img)
-            axes[idx].axis('off')
+        img = plt.imread(self.pg_log_dir+'acc.png')
+        plt.imshow(img)
         plt.show()
 
     # Train the model
