@@ -1,6 +1,6 @@
 import tensorflow as tf
 
-NUM_CLASSES = 10
+NUM_CLASSES = 2
 
 
 class BottleNeck(tf.keras.layers.Layer):
