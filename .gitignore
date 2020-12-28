@@ -1,3 +1,6 @@
+# Dataset directory
+dataset/
+
 # TensorBoard Log 
 events.*
 
