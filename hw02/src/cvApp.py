@@ -28,15 +28,16 @@ class cvApp():
         # Image counter
         imgCount = 0
 
-        # Video frame shape
-        img_h, img_w = 176, 320
-
         # Create video object
         cap = cv2.VideoCapture(self.q1_video)
 
         if not cap.isOpened():
             print("Fail to open video ", self.q1_video)
             return
+
+        # Obtain video frame shape
+        ret, frame = cap.read()
+        (img_h, img_w, _) = frame.shape
 
         # Create background subtractor (mean, std)
         bg_mean = None
