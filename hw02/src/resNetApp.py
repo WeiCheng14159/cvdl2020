@@ -77,6 +77,12 @@ class resNetApp():
         plt.imshow(img)
         plt.show()
 
+    # Show affect of random erasing
+    def show_compare(self):
+        img = plt.imread(self.pg_log_dir+'re-compare.png')
+        plt.imshow(img)
+        plt.show()
+
     # Train the model
     def train(self):
         # Load from check point if available

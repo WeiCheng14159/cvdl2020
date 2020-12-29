@@ -32,9 +32,9 @@ class resnetMainWindow(object):
         self.showProgress = QtWidgets.QPushButton(self.groupBox)
         self.showProgress.setGeometry(QtCore.QRect(10, 30, 191, 32))
         self.showProgress.setObjectName("showProgress")
-        self.showScreenshot = QtWidgets.QPushButton(self.groupBox)
-        self.showScreenshot.setGeometry(QtCore.QRect(10, 70, 191, 32))
-        self.showScreenshot.setObjectName("showScreenshot")
+        self.showCompare = QtWidgets.QPushButton(self.groupBox)
+        self.showCompare.setGeometry(QtCore.QRect(10, 70, 191, 32))
+        self.showCompare.setObjectName("showComparison")
         self.inference = QtWidgets.QPushButton(self.groupBox)
         self.inference.setGeometry(QtCore.QRect(50, 210, 113, 32))
         self.inference.setObjectName("inference")
@@ -53,7 +53,7 @@ class resnetMainWindow(object):
         self.retranslateUi(MainWindow)
         self.inference.clicked.connect(self.app.inference)
         self.showProgress.clicked.connect(self.app.show_progress)
-        self.showScreenshot.clicked.connect(self.app.show_progress)
+        self.showCompare.clicked.connect(self.app.show_compare)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -63,8 +63,8 @@ class resnetMainWindow(object):
                                         "CVDL2020 HW02"))
         self.groupBox.setTitle(_translate("MainWindow", "ResNet50"))
         self.showProgress.setText(_translate("MainWindow", "Show Progress"))
-        self.showScreenshot.setText(
-            _translate("MainWindow", "Show Screenshot"))
+        self.showCompare.setText(
+            _translate("MainWindow", "Show Comparison"))
         self.inference.setText(_translate("MainWindow", "Ramdom Test"))
         self.menucvdl2020_hw02.setTitle(
             _translate("MainWindow", "cvdl202 hw02"))
