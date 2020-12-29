@@ -37,13 +37,14 @@ class resNetApp():
         # Build resNet50 model
         self.__build()
 
-    # This function loads CIFAR-10 dataset
+    # This function loads the cat-and-dog dataset
     def __load_dataset(self):
 
-        # Use data generator
+        # Use data generator with random erasing
         re_datagen = ImageDataGenerator(rescale=1./255,
                                         preprocessing_function=get_random_eraser(pixel_level=True))
 
+        # Use data generator
         datagen = ImageDataGenerator(rescale=1./255)
 
         # Automagically retrieve images and their classes for train and validation sets
@@ -53,13 +54,14 @@ class resNetApp():
             batch_size=self.bch_size,
             class_mode='binary')
 
+        # Validation set shouldn't be random erased
         self.validation_generator = datagen.flow_from_directory(
             self.valid_data_dir,
             target_size=(self.img_width, self.img_height),
             batch_size=self.bch_size,
             class_mode='binary')
 
-    # This function builds vgg-16 model
+    # This function builds resnet-50 model
     def __build(self):
         self.model = resnet_50()
         self.model.build(input_shape=(
