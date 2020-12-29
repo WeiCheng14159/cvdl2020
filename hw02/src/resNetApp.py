@@ -7,6 +7,8 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import EarlyStopping, TensorBoard, ModelCheckpoint
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
+from random_eraser import get_random_eraser
+
 
 class resNetApp():
     def __init__(self):
@@ -39,7 +41,8 @@ class resNetApp():
     def __load_dataset(self):
 
         # Use data generator
-        datagen = ImageDataGenerator(rescale=1./255)
+        datagen = ImageDataGenerator(
+            rescale=1./255, preprocessing_function=get_random_eraser(pixel_level=True))
 
         # Automagically retrieve images and their classes for train and validation sets
         self.train_generator = datagen.flow_from_directory(
