@@ -272,22 +272,26 @@ class cvApp():
             print("Fail to open video ", self.q3_video)
             return
 
-        if cap.isOpened():
+        # Load the dictionary that was used to generate the markers
+        aruco_dict = cv2.aruco.Dictionary_get(cv2.aruco.DICT_6X6_250)
+
+        # Initialize the detector parameters using default values
+        parameters = cv2.aruco.DetectorParameters_create()
+
+        while cap.isOpened():
 
             # Read an image from video
             ret, frame = cap.read()
             if (cv2.waitKey(1) & 0xFF == ord('q')) or (not ret):
-                return
-
-            # Load the dictionary that was used to generate the markers
-            aruco_dict = cv2.aruco.Dictionary_get(cv2.aruco.DICT_6X6_250)
-
-            # Initialize the detector parameters using default values
-            parameters = cv2.aruco.DetectorParameters_create()
+                break
 
             # Detect markers in the image
             markerCorners, markerIds, rejectCandicates = cv2.aruco.detectMarkers(
                 frame, aruco_dict, parameters=parameters)
+
+            # If fewer than 4 markers are found then skip to next frame
+            if len(markerIds) != 4:
+                continue
 
             # marker #25 is on the upper left corner
             idx = np.squeeze(np.where(markerIds == 25))
@@ -355,7 +359,7 @@ class cvApp():
             # cv2.imshow('dstImg', dstImg)
             # cv2.imshow('maskImg', maskImg)
 
-            cv2.waitKey(-1)
+            cv2.waitKey(1)
 
         cap.release()
         cv2.destroyAllWindows()
